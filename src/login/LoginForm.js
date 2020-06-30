@@ -1,18 +1,17 @@
 import React from "react";
 import './Login.css'
-// import Button from 'react-bootstrap/Button';
 import {FormControl, InputGroup, Button} from "react-bootstrap";
 
 export default class LoginForm extends React.Component {
 
-
   constructor(props) {
     super(props);
-    this.state = {
-      username: '',
-      password: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
+    // this.state = {
+    //   username: '',
+    //   password: ''
+    // };
+    // this.handleChange = this.handleChange.bind(this);
+    // this.doLogin = this.doLogin.bind(this);
   }
 
   render() {
@@ -42,13 +41,14 @@ export default class LoginForm extends React.Component {
             <Button
                 id="login-btn"
                 type="submit"
+                onClick={this.doLogin}
             >Login</Button>
           </div>
         </div>
     )
   }
 
-  handleChange(e) {
-    console.log(e)
+  doLogin(e) {
+    console.log("hi :)")
   }
 }
