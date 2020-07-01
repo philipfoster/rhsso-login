@@ -1,8 +1,8 @@
 import React from "react";
-import {Image, Navbar} from "react-bootstrap";
+import {Image, Navbar, NavDropdown, Nav} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./NavigationBar.css"
 import keycloak from "../index";
-
 
 export default class NavigationBar extends React.Component {
 
@@ -14,8 +14,8 @@ export default class NavigationBar extends React.Component {
     }
   }
 
-
   render() {
+    const nameDropdown = this.state.firstName + ' ' + this.state.lastName
     return (
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="#home">
@@ -26,12 +26,15 @@ export default class NavigationBar extends React.Component {
             />
             &nbsp; Red Hat SSO Demo
           </Navbar.Brand>
-
           <Navbar.Toggle />
-          <Navbar.Collapse className="justify-content-end">
-            <Navbar.Text>
-              Signed in as: <a>{this.state.firstName} {this.state.lastName}</a>
-            </Navbar.Text>
+
+          <Navbar.Collapse>
+            <Nav className="justify-content-end container-fluid">
+              <NavDropdown id='account-dropdown' title={nameDropdown}>
+                <NavDropdown.Item target="_blank" href="http://localhost:8080/auth/realms/test-app/account/">My Account</NavDropdown.Item>
+                <NavDropdown.Item onClick={keycloak.logout}>Logout</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
           </Navbar.Collapse>
         </Navbar>
     )
