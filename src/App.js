@@ -1,12 +1,11 @@
 import React from 'react';
-import LoginForm from "./login/LoginForm";
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import NavigationBar from "./navbar/NavigationBar";
 
 function App() {
   return (
     <div className="App">
-      <LoginForm />
+      <NavigationBar />
     </div>
   );
 }

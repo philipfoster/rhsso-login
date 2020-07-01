@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { KeycloakProvider } from '@react-keycloak/web'
 
 import Keycloak from 'keycloak-js'
 
@@ -12,6 +12,8 @@ let initOptions = {
 }
 
 let keycloak = Keycloak(initOptions);
+
+export default keycloak
 
 keycloak.init({ onLoad: initOptions.onLoad }).success((auth) => {
 
