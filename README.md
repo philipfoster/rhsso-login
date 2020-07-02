@@ -1,6 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a demo of Red Hat SSO (Keycloak) authentication with ReactJS. <br />
 
-## Available Scripts
+## Available Run Scripts
 
 In the project directory, you can run:
 
@@ -66,3 +66,21 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Modifying RHSSO Login Page
+
+Full documentation for modification of the login theme is available on the product documentation page [here](https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.0/html/server_developer_guide/themes). <br />
+This will involve writing HTML, CSS, and JavaScript code to change the style of the elements that 
+are rendered on the page. Once the theme is created, it can be copied to the RHSSO server configuration files and enabled in your realm under the "Realm Settings" -> Themes tab.
+
+
+### Setting up RHSSO Client
+A Client in RHSSO, is used by your application to sign in. To configure this, sign in to the RHSSO admin dashboard and switch to the realm you want to join.
+
+Click Clients -> Create, and set an appropriate client name. Set the any relevant configuration, as described by the [documenation](https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.0/html/server_administration_guide/clients),
+especially "Root URL", "Valid redirect uris", "admin url", and "web origins". 
+
+Once this is created, open `src/index.js` and modify the `initOptions` variable to point to the correct auth url, realm, and client id that you just configured.
+
+You can either let RHSSO manage users, or delegate that responsibility to an external IdP, such as LDAP in the RHSSO admin dashboard. Once users are created, you 
+can open this application in your browser and sign in.
