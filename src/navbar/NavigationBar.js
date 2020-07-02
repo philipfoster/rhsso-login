@@ -1,8 +1,8 @@
 import React from "react";
-import {Image, Navbar, NavDropdown, Nav} from "react-bootstrap";
+import {Image, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./NavigationBar.css"
-import keycloak from "../index";
+// import keycloak from "../index";
 
 export default class NavigationBar extends React.Component {
 
@@ -32,7 +32,7 @@ export default class NavigationBar extends React.Component {
             <Nav className="justify-content-end container-fluid">
               <NavDropdown id='account-dropdown' title={nameDropdown}>
                 <NavDropdown.Item target="_blank" href="http://localhost:8080/auth/realms/test-app/account/">My Account</NavDropdown.Item>
-                <NavDropdown.Item onClick={keycloak.logout}>Logout</NavDropdown.Item>
+                <NavDropdown.Item>Logout</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
@@ -49,12 +49,17 @@ export default class NavigationBar extends React.Component {
   }
 
   loadUserInfo() {
-    keycloak.loadUserProfile().then(data => {
-      // this.pushData(data.firstName, data.lastName)
-      this.setState({
-        firstName: this.capitalizeName(data.firstName),
-        lastName: this.capitalizeName(data.lastName)
-      })
+    this.setState({
+      firstName: 'Test',
+      lastName: 'User'
     })
+    // keycloak.loadUserProfile().then(data => {
+    //   // this.pushData(data.firstName, data.lastName)
+    //   this.setState({
+    //     firstName: this.capitalizeName(data.firstName),
+    //     lastName: this.capitalizeName(data.lastName)
+    //   })
+    // })
   }
 }
+
