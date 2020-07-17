@@ -1,5 +1,5 @@
 import React from "react";
-import {Image, Navbar, NavDropdown, Nav} from "react-bootstrap";
+import {Image, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./NavigationBar.css"
 import keycloak from "../index";
@@ -31,7 +31,7 @@ export default class NavigationBar extends React.Component {
           <Navbar.Collapse>
             <Nav className="justify-content-end container-fluid">
               <NavDropdown id='account-dropdown' title={nameDropdown}>
-                <NavDropdown.Item target="_blank" href="http://localhost:8080/auth/realms/test-app/account/">My Account</NavDropdown.Item>
+                <NavDropdown.Item target="_blank" href="https://ec2-3-130-236-137.us-east-2.compute.amazonaws.com:8443/auth/realms/test-app/account/">My Account</NavDropdown.Item>
                 <NavDropdown.Item onClick={keycloak.logout}>Logout</NavDropdown.Item>
               </NavDropdown>
             </Nav>
