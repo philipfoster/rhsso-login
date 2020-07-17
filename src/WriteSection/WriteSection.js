@@ -41,6 +41,7 @@ export default class WriteSection extends React.Component {
   onButtonClick() {
     // console.log("click")
     const input = document.getElementById("input-box").value
+    document.getElementById("input-box").value = ""
 
     const payload = [
         input
