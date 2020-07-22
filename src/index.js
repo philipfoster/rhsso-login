@@ -8,14 +8,14 @@ import * as serviceWorker from './serviceWorker';
 import Keycloak from 'keycloak-js'
 
 let initOptions = {
-  url: 'https://ec2-3-130-236-137.us-east-2.compute.amazonaws.com:8443/auth', realm: 'test-app', clientId: 'react-test-app', onLoad: 'login-required'
+  url: 'http://sso.nvsconsulting.io/auth', realm: 'test-app', clientId: 'rhsso-frontend', onLoad: 'login-required'
 }
 
 let keycloak = Keycloak(initOptions);
 
 export default keycloak
 
-keycloak.init({ onLoad: initOptions.onLoad, flow: "implicit" }).success((auth) => {
+keycloak.init({ onLoad: initOptions.onLoad }).success((auth) => {
 
   if (!auth) {
     window.location.reload();
